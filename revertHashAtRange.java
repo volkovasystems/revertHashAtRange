@@ -8,6 +8,8 @@ import static convertToSequence.convertToSequence.convertToSequence;
 
 public class revertHashAtRange{
 	private static final String EMPTY_STRING = "";
+	private static final String NULL_STRING = null;
+
 	private static final String DEFAULT_ALGORITHM_TYPE = "md5";
 
 	public static void main( String... parameterList ){
@@ -26,7 +28,7 @@ public class revertHashAtRange{
 
 		String separator = EMPTY_STRING;
 
-		String startIndex = null;
+		String startIndex = NULL_STRING;
 		if( parameterListLength >= 3 && 
 			parameterList[ 2 ].matches( "\\d+" ) )
 		{
@@ -36,7 +38,7 @@ public class revertHashAtRange{
 			separator = parameterList[ 2 ];	
 		}
 
-		String endIndex = null;
+		String endIndex = NULL_STRING;
 		if( parameterListLength >= 4 &&
 			parameterList[ 3 ].matches( "\\d+" ) )
 		{
@@ -63,7 +65,7 @@ public class revertHashAtRange{
 		try{
 			String revertedHash = revertHashAtRange( hash, dictionary, startIndex, endIndex, algorithmType, separator );	
 			
-			if( revertedHash.equals( null ) ){
+			if( revertedHash.equals( NULL_STRING ) ){
 				System.out.print( "@null" );
 				
 			}else{
@@ -81,8 +83,8 @@ public class revertHashAtRange{
 		BigDecimal startingIndex = new BigDecimal( startIndex );
 		BigDecimal endingIndex = new BigDecimal( endIndex );
 
-		String sequence = null;
-		String testingHash = null;
+		String sequence = NULL_STRING;
+		String testingHash = NULL_STRING;
 
 		MessageDigest messageDigest = MessageDigest.getInstance( algorithmType );
 		for(
@@ -99,6 +101,6 @@ public class revertHashAtRange{
 			}
 		}
 
-		return null;
+		return NULL_STRING;
 	}
 }
